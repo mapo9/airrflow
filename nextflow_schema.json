@@ -489,6 +489,37 @@
                 }
             }
         },
+        "mixcr_postanalysis_options": {
+            "title": "MiXCR Postanalysis options",
+            "type": "object",
+            "fa_icon": "fas fa-chart-simple",
+            "description": "Options for the postanalysis provided by MiXCR.",
+            "properties": {
+                "downsampling": {
+                    "type": "string",
+                    "description": "Downsampling is required for the MiXCR postanalysis. See also the [MiXCR docs](https://mixcr.com/mixcr/reference/mixcr-postanalysis/#common).",
+                    "help_text": "The downsampling must be provided like this: <type>-<tag>-<procedure> There are three downsampling types (count, top, cumtop) and three tags (reads, umi, cells). In count, the procedure can be one of 'auto', 'min' or 'fixed' (number must be added). For top, the procedure must be a number of clonotypes. For cumtop, the procedure must be a percentage of clonoset abundance.",
+                    "default": "count-reads-auto",
+                    "fa_icon": "fas fa-chart-simple",
+                    "hidden": true
+                },
+                "weight": {
+                    "type": "string",
+                    "description": "Method to calculate weight of each clonotype",
+                    "enum": ["read", "umi", "cell", "none"],
+                    "default": "read",
+                    "fa_icon": "fas fa-chart-simple",
+                    "hidden": true
+                },
+                "metadata": {
+                    "type": "string",
+                    "format": "file-path",
+                    "description": "Optional metadata table (tsv/csv) used to group samples.",
+                    "fa_icon": "fas fa-chart-simple",
+                    "hidden": true
+                }
+            }
+        },
         "institutional_config_options": {
             "title": "Institutional config options",
             "type": "object",
